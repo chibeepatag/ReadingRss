@@ -13,6 +13,11 @@
 			<option value="Technology">Technology</option>
 			<option value="World">World News</option>
 		</select>
+		<select name="source">
+			<option value="NYT">New York Times</option>
+			<option value="BBC">BBC</option>
+			<option value="SMH">Sydney Morning Herald</option>
+		</select>
 		<input type="submit" value="Get News"/>
 	</form>
 </body>
