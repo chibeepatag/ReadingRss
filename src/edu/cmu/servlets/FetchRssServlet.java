@@ -3,6 +3,8 @@ package edu.cmu.servlets;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -24,27 +26,29 @@ import javax.xml.transform.stream.StreamSource;
 public class FetchRssServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	private static final String BUSINESS = "Business";
-	private static final String TECHNOLOGY = "Technology";
-	private static final String WORLD = "World";
-
-	private static final String NYT_BUSINESS_URL = "http://rss.nytimes.com/services/xml/rss/nyt/Business.xml";
-	private static final String NYT_TECHNOLOGY_URL = "http://rss.nytimes.com/services/xml/rss/nyt/Technology.xml";
-	private static final String NYT_WORLD_URL = "http://rss.nytimes.com/services/xml/rss/nyt/World.xml";
-
-	private static final String BBC_BUSINESS_URL = "http://feeds.bbci.co.uk/news/business/rss.xml";
-	private static final String BBC_TECHNOLOGY_URL = "http://feeds.bbci.co.uk/news/technology/rss.xml";
-	private static final String BBC_WORLD_URL = "http://feeds.bbci.co.uk/news/world/rss.xml";
-
-	private static final String SMH_BUSINESS_URL = "http://www.smh.com.au/rssheadlines/business.xml";
-	private static final String SMH_TECHNOLOGY_URL = "http://feeds.smh.com.au/rssheadlines/technology.xml";
-	private static final String SMH_WORLD_URL = "http://feeds.smh.com.au/rssheadlines/world.xml";
-
-	private static final String BBC = "BBC";
-	private static final String NYT = "NYT";
-	private static final String SMH = "SMH";
-
 	private static final String XSL_LOCATION = "/XSLTransformerCode.xsl";
+	
+	private static final Map<String, Map<String, String>> urlMap = new HashMap<String, Map<String, String>>();
+	
+	static {
+		Map<String, String> bbcUrlMap = new HashMap<String, String>();
+		bbcUrlMap.put("Business", "http://feeds.bbci.co.uk/news/business/rss.xml");
+		bbcUrlMap.put("Technology", "http://feeds.bbci.co.uk/news/technology/rss.xml");
+		bbcUrlMap.put("World", "http://feeds.bbci.co.uk/news/world/rss.xml");
+		urlMap.put("BBC", bbcUrlMap);
+		
+		Map<String, String> smhUrlMap = new HashMap<String, String>();
+		smhUrlMap.put("Business", "http://www.smh.com.au/rssheadlines/business.xml");
+		smhUrlMap.put("Technology", "http://feeds.smh.com.au/rssheadlines/technology.xml");
+		smhUrlMap.put("World", "http://feeds.smh.com.au/rssheadlines/world.xml");
+		urlMap.put("SMH", smhUrlMap);
+		
+		Map<String, String> nytUrlMap = new HashMap<String, String>();
+		nytUrlMap.put("Business", "http://rss.nytimes.com/services/xml/rss/nyt/Business.xml");
+		nytUrlMap.put("Technology", "http://rss.nytimes.com/services/xml/rss/nyt/Technology.xml");
+		nytUrlMap.put("World", "http://rss.nytimes.com/services/xml/rss/nyt/World.xml");		
+		urlMap.put("NYT", nytUrlMap);
+	}
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -103,32 +107,11 @@ public class FetchRssServlet extends HttpServlet {
 	}
 
 	private String getUrl(String topic, String source) throws Exception {
-		if (topic.equals(BUSINESS)) {
-			if (source.equals(BBC)) {
-				return BBC_BUSINESS_URL;
-			} else if (source.equals(NYT)) {
-				return NYT_BUSINESS_URL;
-			} else if (source.equals(SMH)) {
-				return SMH_BUSINESS_URL;
-			}
-		} else if (topic.equals(TECHNOLOGY)) {
-			if (source.equals(BBC)) {
-				return BBC_TECHNOLOGY_URL;
-			} else if (source.equals(NYT)) {
-				return NYT_TECHNOLOGY_URL;
-			} else if (source.equals(SMH)) {
-				return SMH_TECHNOLOGY_URL;
-			}
-		} else if (topic.equals(WORLD)) {
-			if (source.equals(BBC)) {
-				return BBC_WORLD_URL;
-			} else if (source.equals(NYT)) {
-				return NYT_WORLD_URL;
-			} else if (source.equals(SMH)) {
-				return SMH_WORLD_URL;
-			}
+		String url = urlMap.get(source).get(topic);
+		if (null == url){
+			throw new Exception("Invalid topic or source");			
 		}
-		throw new Exception("Invalid topic or source");
+		return url;
 	}
 
 }
