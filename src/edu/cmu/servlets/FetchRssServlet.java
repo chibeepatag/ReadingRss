@@ -65,7 +65,7 @@ public class FetchRssServlet extends HttpServlet {
 			throw new ServletException("Invalid Topic");
 		}
 		
-		//applyStyleSheet(xmlDoc, out);
+		applyStyleSheet(xmlDoc, out);
 	
 	}
 
@@ -76,7 +76,7 @@ public class FetchRssServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 	}
 	
-	private Result applyStyleSheet(Source xmlDoc, PrintWriter out){
+	private void applyStyleSheet(Source xmlDoc, PrintWriter out){
 		Result result = new StreamResult(out);
 		ServletContext context = getServletContext();
 		InputStream xsl = (InputStream)(context.getResourceAsStream(XSL_LOCATION));
@@ -93,7 +93,7 @@ public class FetchRssServlet extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return result;
+		
 	}
 	
 	
