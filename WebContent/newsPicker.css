@@ -5,7 +5,7 @@
 }
 
 #form{
-	
+	margin-left:30px;
 }
 
 #link{
@@ -23,4 +23,23 @@
 #newsFrame{
 	width: 750px;
 	height: 1250px;
+}
+
+#subhead{
+	text-align: center;	
+	font-size: 20pt;
+	margin-left: 400px;
+	font-style: oblique;
+}
+
+#header{
+	padding-bottom: 25px;
+}
+
+#date{
+	margin-left: 220px;
+}
+
+select, button{
+	margin: 5px;
 }

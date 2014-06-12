@@ -1,4 +1,5 @@
 $(document).ready(function(){
+	$("#date").text(new Date());
 	$("#getNews").click(getLinks);
 });
 

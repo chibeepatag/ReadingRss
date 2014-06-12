@@ -11,7 +11,13 @@
 <title>Reading Rss</title>
 </head>
 <body>
-	<h1>News One Stop Shop</h1>
+
+	<div id="header"><img src="images/PatagTimes.png"/>
+	<br/>
+	<span id="subhead">Your consolidated source of latest news.</span>
+	<span id="date">Today is </span>
+	<hr/>
+	</div>
 	<div id="left">
 		<div id="form">
 			<form action="FetchRssServlet" method="get" id="newsForm">
@@ -19,7 +25,8 @@
 					<option value="Business">Business</option>
 					<option value="Technology">Technology</option>
 					<option value="World">World News</option>
-				</select> <select name="source">
+				</select> 
+				<select name="source">
 					<option value="NYT">New York Times</option>
 					<option value="BBC">BBC</option>
 					<option value="SMH">Sydney Morning Herald</option>
