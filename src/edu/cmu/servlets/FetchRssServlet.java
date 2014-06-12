@@ -21,6 +21,8 @@ import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 
 /**
+ * This servlet fetches the links to news articles
+ * given the selected source and topic. 
  * Servlet implementation class FetchRssServlet
  */
 public class FetchRssServlet extends HttpServlet {
@@ -63,7 +65,7 @@ public class FetchRssServlet extends HttpServlet {
 	 *      response)
 	 */
 	protected void doGet(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
+			HttpServletResponse response) throws ServletException, IOException {		
 		String topic = request.getParameter("topic");
 		String source = request.getParameter("source");
 		PrintWriter out = response.getWriter();

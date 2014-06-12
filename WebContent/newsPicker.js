@@ -22,14 +22,5 @@ function updateNews(news){
 
 function getNews(link){
 	var url = $(link).attr("href");
-
-	$.ajax({
-		url: url,		
-		type: "GET",
-		success: showNews
-	});
-}
-
-function showNews(news){
-	$("#news").html(news);
+	$("#news").find("iframe").attr("src", url);
 }

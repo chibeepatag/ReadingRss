@@ -19,3 +19,8 @@
 #newsForm{
 	float: left;
 }
+
+#newsFrame{
+	width: 750px;
+	height: 1250px;
+}

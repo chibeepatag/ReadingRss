@@ -14,4 +14,14 @@
     <servlet-name>FetchRssServlet</servlet-name>
     <url-pattern>/FetchRssServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>FetchNews</display-name>
+    <servlet-name>FetchNews</servlet-name>
+    <servlet-class>edu.cmu.servlets.FetchNews</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FetchNews</servlet-name>
+    <url-pattern>/FetchNews</url-pattern>
+  </servlet-mapping>
 </web-app>
