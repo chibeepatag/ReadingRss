@@ -16,7 +16,7 @@
 						<xsl:attribute name="href">
 									<xsl:value-of select="link" />						
 								</xsl:attribute>
-						<xsl:value-of select="title" />
+						<xsl:value-of select="title" disable-output-escaping="no" />
 					</xsl:element>
 				</li>
 			</xsl:for-each>

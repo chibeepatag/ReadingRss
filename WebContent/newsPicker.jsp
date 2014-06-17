@@ -32,7 +32,7 @@
 					<option value="SMH">Sydney Morning Herald</option>
 				</select> 
 			</form>
-			<button id="getNews">Get News</button>
+			<button id="getNews" type="button">Get News</button>
 		</div>
 		<div id="links">
 			

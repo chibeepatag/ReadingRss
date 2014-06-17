@@ -1,30 +1,33 @@
 @CHARSET "ISO-8859-1";
+
+/*This is the container on the left
+* which holds the form and where the 
+* links will be displayed.*/
 #left{
 	float: left;	
 	width: 40%;
 }
 
+/*This is the container of newsForm.*/
 #form{
 	margin-left:30px;
 }
 
-#link{
-	
-}
-
-#news{
-	
-}
-
+/*This is the form used to submit
+* the http request with topic and
+* source as parameters.*/
 #newsForm{
 	float: left;
 }
 
+/*This is the iFrame where the news will be displayed
+* when the news link is clicked.*/
 #newsFrame{
 	width: 750px;
 	height: 1250px;
 }
 
+/*This container holds the Patag News tagline*/
 #subhead{
 	text-align: center;	
 	font-size: 20pt;
@@ -32,14 +35,17 @@
 	font-style: oblique;
 }
 
+/*This container holds the logo/banner of Patag News*/
 #header{
 	padding-bottom: 25px;
 }
 
+/*This container holds the timestamp in the header*/
 #date{
 	margin-left: 220px;
 }
 
+/*This places a margin between the components of the newsForm*/
 select, button{
 	margin: 5px;
 }
